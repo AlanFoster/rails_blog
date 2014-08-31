@@ -1,0 +1,28 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @post.title
+%p
+  %strong Content:
+  = @post.content
+= render partial: @post.comments
+%hr
+= form_for @new_comment do |f|
+  = f.hidden_field :post_id
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :website
+    %br/
+    = f.text_area :website
+  .field
+    = f.label :content
+    %br/
+    = f.text_area :content
+  .actions
+    = f.submit
+= link_to 'Edit', edit_post_path(@post)
+|
+\#{link_to 'Back', posts_path}

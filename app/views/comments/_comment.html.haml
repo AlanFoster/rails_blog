@@ -1,0 +1,7 @@
+%div
+  %div
+    %strong= comment.name
+    = comment.created_at.to_formatted_s(:long)
+  %div
+    %strong Content:
+  %div= h comment.content

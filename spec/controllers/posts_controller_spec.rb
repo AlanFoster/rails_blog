@@ -4,12 +4,28 @@ describe PostsController do
   let(:mock_post) { FactoryGirl.build(:post) }
 
   describe '#get' do
-    before :each do
-      get :index
+    context 'no posts' do
+      before :each do
+        get :index
+      end
+
+      it { expect(response.status).to eq(200) }
+      it { expect(assigns(:posts)).to_not be_nil }
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(assigns(:posts)).to_not be_nil }
+    context 'many posts' do
+      before :each do
+        FactoryGirl.create(:post, title: 'First')
+        FactoryGirl.create(:post, title: 'Second')
+        FactoryGirl.create(:post, title: 'Third')
+
+        get :index
+      end
+
+      it { expect(response.status).to eq(200) }
+      it { expect(assigns(:posts)).to_not be_nil }
+      it { expect(assigns(:posts).map(&:title)).to match %w(Third Second First) }
+    end
   end
 
   describe '#new' do

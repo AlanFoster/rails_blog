@@ -10,19 +10,7 @@
   <%= @post.content %>
 </p>
 
-<% @post.comments.each do |comment| %>
-    <hr />
-    <div>
-        <div><strong>Name:</strong></div>
-        <div><%= h comment.name %></div>
-
-        <div><strong>Website:</strong></div>
-        <div><%= h comment.website %></div>
-
-        <div><strong>Content:</strong></div>
-        <div><%= h comment.content %></div>
-    </div>
-<% end %>
+<%= render partial: @post.comments %>
 <hr />
 
 <%= form_for @new_comment do |f| %>

@@ -1,6 +1,6 @@
 #logo
   Alan Foster
   #links
-    - {Blogs: posts_path, About: '#', Projects: '#'}.each do |link, path|
+    - {Blogs: posts_path, About: about_path, Projects: '#'}.each do |link, path|
       .link
         = link_to link, path, class: style_for(path)

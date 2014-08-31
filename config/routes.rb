@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   resources :comments
+  get 'about' => 'about#show'
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

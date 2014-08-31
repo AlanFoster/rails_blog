@@ -46,8 +46,9 @@ a {
       color: #666666;
     }
   }
+
   .active {
-    color: #666666;
+    color: #666666 !important;
   }
 }
 
@@ -64,7 +65,7 @@ a {
 // Content Area
 //****************************************************************/
 
-#contentArea {
+#wrapper {
   background: image-url("glow.png") no-repeat;
   min-height: 540px;
   padding-top: 28px;

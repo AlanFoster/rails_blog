@@ -212,3 +212,39 @@ table {
     float: right;
   }
 }
+
+.odd {
+  background:#DDD;
+}
+
+.even {
+  background:#CCC;
+}
+
+.odd, .even {
+  margin-top:20px;
+}
+
+.comment {
+  padding: 10px;
+
+  .name {
+    font-weight: bold;
+  }
+
+  .date {
+    float: right;
+  }
+}
+
+
+.new_comment {
+  input[type=text] {
+    width: 300px
+  }
+
+  textarea {
+    width: 500px;
+    height: 200px
+  }
+}

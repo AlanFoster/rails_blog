@@ -1,0 +1,7 @@
+%div.post_preview
+  %span.title
+    = post.title
+  %span.date
+    = post.created_at.to_formatted_s(:long)
+  %div
+    = post.content

@@ -1,7 +1,8 @@
-%div
+%div{class: 'comment ' + cycle('even', 'odd')}
   %div
-    %strong= comment.name
-    = comment.created_at.to_formatted_s(:long)
-  %div
-    %strong Content:
-  %div= h comment.content
+    %span.name
+      = h comment.name
+    %span.date
+      = comment.created_at.to_formatted_s(:long)
+    %div
+      = h comment.content

@@ -1,9 +1,91 @@
 !!!
-%html
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title RailsBlog
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22966123-1']);
+      _gaq.push(['_setDomainName', '.alanfoster.me']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    %title Alan Foster Belfast
   %body
-    = yield
+    #topBar
+    #mainDiv
+      #menuArea
+        #logo
+          Alan Foster
+        #links
+          #index.link
+            %a{:href => "/#"} Blogs
+          #about.link
+            %a{:href => "/#"} About
+          #coding.link
+            %a{:href => "/#"} Projects
+      #contentArea
+        #leftContent
+          #innerText
+            = yield
+        #rightContent
+          .section
+            .heading
+              BLOGS
+            .link
+              %a{:href => "#"}
+                September
+                %span.bracket
+                  (
+                  %span.blogNum> 1
+                  )
+            .link
+              %a{:href => "#"}
+                October
+                %span.bracket
+                  (
+                  %span.blogNum> 2
+                  )
+            .link
+              %a{:href => "#"}
+                November
+                %span.bracket
+                  (
+                  %span.blogNum> 1
+                  )
+            .link
+              %a{:href => "#"}
+                December
+                %span.bracket
+                  (
+                  %span.blogNum> 3
+                  )
+          .section
+            .heading
+              PROGRAMMING
+            .link
+              %a{:href => "#"} link one
+            .link
+              %a{:href => "#"} link two
+            .link
+              %a{:href => "#"} link three
+            .link
+              %a{:href => "#"} link four
+          .section
+            .heading
+              OTHER
+            %div{:style => ""}
+              %img{:alt => "contact", :src => "/files/screenshot-28-01-2012-19-08-17.png"}
+              %a{:href => "http://stackoverflow.com/users/551841/alanfoster"}
+                %img{:alt => "profile for AlanFoster at Stack Overflow, Q&amp;A for professional and enthusiast programmers", :height => "58", :src => "http://stackoverflow.com/users/flair/551841.png", :title => "profile for AlanFoster at Stack Overflow, Q&amp;A for professional and enthusiast programmers", :width => "208"}
+        #footer
+          %span#createdBy Site created by
+          %span#alan
+            %a{:href => "http://www.alanfoster.me/"}
+              Alan Foster

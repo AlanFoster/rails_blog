@@ -1,0 +1,200 @@
+body {
+  margin: 0px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  display: inherit;
+  text-decoration: inherit;
+}
+
+//*****************************************************************
+// Top / Menu
+//****************************************************************/
+
+#topBar {
+  height: 8px;
+  background: #666666;
+  margin-bottom: 2px;
+}
+
+#mainDiv {
+  width: 984px;
+  margin: 0px auto;
+}
+
+#menuArea {
+  position: relative;
+  background: white;
+  height: 68PX;
+  border-bottom: 1px solid #246291;
+  margin-bottom: 1px;
+  div {
+    position: absolute;
+    bottom: 2px;
+  }
+  .link {
+    position: relative;
+    text-shadow: 0.04em 0.04em #d9d9bb;
+    display: inline-block;
+    font-size: 16pt;
+    margin-right: 40px;
+    color: #999999;
+    text-transform: uppercase;
+    &:hover {
+      color: #666666;
+    }
+  }
+  .active {
+    color: #666666;
+  }
+}
+
+#logo {
+  float: right;
+  font-size: 26pt;
+  color: #3084bf;
+  text-shadow: 0.03em 0.03em #8cbbd5;
+  text-align: right;
+  width: 100%;
+}
+
+//*****************************************************************
+// Content Area
+//****************************************************************/
+
+#contentArea {
+  background: image-url("glow.png") no-repeat;
+  min-height: 540px;
+  padding-top: 28px;
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+}
+
+#leftContent {
+  width: 695px;
+  border: 1px solid white;
+  padding-top: -50px;
+  margin-right: 15px;
+  float: left;
+  background: image-url("content_background.png") no-repeat;
+  background-color: #f9f9f9;
+  min-height: 400px;
+  #innerText {
+    padding: 20px;
+    font-size: 15px;
+    text-align: justify;
+    color: #666666;
+    margin-top: -20px;
+  }
+  a {
+    color: #3084bf;
+    display: inline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  #innerText .heading {
+    font-size: 26px;
+    text-shadow: 0.03em 0.03em white;
+    margin: 20px 0 20px 0;
+  }
+}
+
+#rightContent {
+  width: 270px;
+  border-top: 1px solid #CCCCCC;
+  float: right;
+  margin-top: 1px;
+  .section {
+    margin: 15px 0 20px 0;
+  }
+  .heading {
+    color: #333;
+    width: 100%;
+    text-align: right;
+  }
+  .section .link {
+    color: #666666;
+    margin-bottom: 12px;
+    &:hover {
+      color: #333333;
+    }
+    .bracket {
+      color: #CCCCCC;
+      .blogNum {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+//*****************************************************************
+// Footer
+//****************************************************************/
+
+#footer {
+  clear: both;
+  border-top: 15px solid white;
+  height: 80px;
+  padding-top: 10px;
+  text-align: center;
+  background: image-url("glow.png") no-repeat;
+  font-size: 12px;
+  #createdBy {
+    color: #bbbbbb;
+  }
+  #alan {
+    color: #666666;
+  }
+}
+
+//*****************************************************************
+// Misc
+//****************************************************************/
+
+.codeSegment {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  margin: 10px;
+  width: 640px;
+  font-size: 14px;
+}
+
+table {
+  table-layout: fixed;
+  color: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  width: 660px;
+  overflow: hidden;
+  margin: 20px 0 20px 0;
+}
+
+//*****************************************************************
+// Misc
+//****************************************************************/
+
+.codeItem {
+  border-top: 1px solid #dddddd;
+  padding: 10px;
+  min-height: 140px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.dateSeperator {
+  Text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.codeItem img {
+  float: left;
+  margin: 5px;
+  margin-right: 15px;
+}

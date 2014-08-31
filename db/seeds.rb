@@ -6,5 +6,5 @@ first_blog.comments.create(name: 'Alan', content: 'Comment', website: 'http://ex
 
 # Create random posts
 1.upto(15) do
-  Post.create title: Faker::Lorem.word, content: Faker::Lorem.paragraph
+  Post.create title: Faker::Lorem.word, content: Faker::Lorem.paragraph, created_at: Date.today - Faker::Number.number(2).to_i.months
 end

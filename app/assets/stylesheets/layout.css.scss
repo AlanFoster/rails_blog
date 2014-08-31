@@ -91,6 +91,7 @@ a {
     color: #666666;
     margin-top: -20px;
   }
+//  TODO duplicated within right hand
   a {
     color: #3084bf;
     display: inline;
@@ -118,18 +119,43 @@ a {
     width: 100%;
     text-align: right;
   }
-  .section .link {
-    color: #666666;
-    margin-bottom: 12px;
-    &:hover {
-      color: #333333;
-    }
-    .bracket {
-      color: #CCCCCC;
-      .blogNum {
-        font-size: 12px;
+  .section {
+    .link {
+      color: #666666;
+      margin-bottom: 12px;
+      &:hover {
+        color: #333333;
+      }
+      .bracket {
+        color: #CCCCCC;
+        .blogNum {
+          font-size: 12px;
+        }
       }
     }
+
+    .blog_grouping, {
+      color: #666666;
+      margin-bottom: 12px;
+      .bracket {
+        color: #CCCCCC;
+        .blogNum {
+          font-size: 12px;
+        }
+      }
+      .blog_grouping_item {
+        margin-left: 15px;
+      }
+      a {
+        color: #3084bf;
+        display: inline;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+
   }
 }
 
@@ -237,7 +263,6 @@ table {
     float: right;
   }
 }
-
 
 .new_comment {
   input[type=text] {

@@ -1,34 +1,8 @@
 .section
   .heading
     BLOGS
-  .link
-    %a{:href => "#"}
-      September
-      %span.bracket
-        (
-        %span.blogNum> 1
-        )
-  .link
-    %a{:href => "#"}
-      October
-      %span.bracket
-        (
-        %span.blogNum> 2
-        )
-  .link
-    %a{:href => "#"}
-      November
-      %span.bracket
-        (
-        %span.blogNum> 1
-        )
-  .link
-    %a{:href => "#"}
-      December
-      %span.bracket
-        (
-        %span.blogNum> 3
-        )
+  = render 'posts/overview'
+
 .section
   .heading
     PROGRAMMING

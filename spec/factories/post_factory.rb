@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    title "Blog Title"
-    content "Blog Content"
+    title Faker::Lorem.word
+    content Faker::Lorem.paragraph
     created_at { Time.now }
   end
 end

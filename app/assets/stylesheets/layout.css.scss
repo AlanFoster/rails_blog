@@ -97,7 +97,7 @@ a {
       text-decoration: underline;
     }
   }
-  #innerText .heading {
+  #innerText h1 {
     font-size: 26px;
     text-shadow: 0.03em 0.03em white;
     margin: 20px 0 20px 0;
@@ -197,4 +197,18 @@ table {
   float: left;
   margin: 5px;
   margin-right: 15px;
+}
+
+
+// Blog post previews
+.post_preview {
+  margin-top: 20px;
+
+  .title {
+    font-weight: bold;
+  }
+
+  .date {
+    float: right;
+  }
 }

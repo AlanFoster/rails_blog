@@ -1,0 +1,9 @@
+%div.post_preview
+  %span.title
+    = post_preview.title
+  %span.date
+    = post_preview.created_at.to_formatted_s(:long)
+  %div
+    = post_preview.content
+  %div
+    = link_to "#{post_preview.comments.count} comments", post_preview

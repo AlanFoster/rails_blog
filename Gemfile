@@ -49,3 +49,4 @@ group :development, :test do
 end
 
 gem 'pry'
+gem 'pry-stack_explorer'

@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @new_comment = Comment.new post: @post
   end
 
   # GET /posts/new

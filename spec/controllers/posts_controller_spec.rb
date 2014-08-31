@@ -41,11 +41,7 @@ describe PostsController do
     end
 
     it { expect { create_request }.to change { Post.count }.from(0).to(1) }
-
-    it 'redirects to the last post' do
-      create_request
-      expect(response).to redirect_to(assigns(:post))
-    end
+    it { expect(create_request).to redirect_to(assigns(:post)) }
   end
 
   describe '#show' do
@@ -55,6 +51,8 @@ describe PostsController do
     end
 
     it { expect(response.status).to eq(200) }
+    it { expect(assigns(:new_comment)).to_not be_nil}
+    it { expect(assigns(:new_comment).post_id).to eq(mock_post.id)}
   end
 
   describe '#edit' do

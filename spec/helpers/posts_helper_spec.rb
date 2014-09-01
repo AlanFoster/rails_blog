@@ -1,4 +1,4 @@
 require_relative '../rails_helper'
 
-class PostsHelperSpec < ActionView::TestCase
+describe PostsHelper do
 end

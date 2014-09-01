@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'posts/overview' => 'posts#overview'
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
-  resources :comments
   get 'about' => 'about#show'
   root 'posts#index'
 

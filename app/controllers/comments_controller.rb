@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params)
     if @comment.save
       redirect_to @comment.post
     end
@@ -14,8 +15,7 @@ class CommentsController < ApplicationController
       .permit(
           :name,
           :website,
-          :content,
-          :post_id
+          :content
       )
   end
 end

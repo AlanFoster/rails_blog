@@ -5,12 +5,17 @@ describe CommentsController do
           'name' => Faker::Name.name,
           'website' => Faker::Internet.url,
           'content' => Faker::Lorem.paragraph,
-          'post_id' => target_post.id
+      }
+    end
+    let(:request_json) do
+      {
+          comment: comment_json,
+          post_id: target_post.id
       }
     end
 
     let(:create_request) do
-      post :create, comment: comment_json
+      post :create, request_json
     end
 
     context 'valid post_id supplied' do
@@ -24,8 +29,6 @@ describe CommentsController do
             'name' => comment_json['name'],
             'website' => comment_json['website'],
             'content' => comment_json['content'],
-            # TODO Doesn't work as expected
-            # 'post_id' => comment_json['post_id']
           })
         end
 

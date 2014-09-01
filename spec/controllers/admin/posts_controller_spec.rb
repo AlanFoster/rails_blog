@@ -3,6 +3,11 @@ require 'rails_helper'
 describe Admin::PostsController do
   let(:mock_post) { FactoryGirl.build(:post) }
 
+  # TODO should we use allow or such?
+  before :each do
+    session[:id] = 1
+  end
+
   describe '#index' do
     context 'no posts' do
       before :each do

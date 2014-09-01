@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'posts/overview' => 'posts#overview'
   resources :posts do
     resources :comments
@@ -10,6 +12,10 @@ Rails.application.routes.draw do
     resources :posts
     root 'posts#index'
   end
+
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+  resources :sessions
 
   root 'posts#index'
 

@@ -25,11 +25,11 @@ describe CommentsController do
 
       context 'strong_params' do
         let(:expected_initializers) do
-          hash_including({
+          {
             'name' => comment_json['name'],
             'website' => comment_json['website'],
             'content' => comment_json['content'],
-          })
+          }
         end
 
         before :each do

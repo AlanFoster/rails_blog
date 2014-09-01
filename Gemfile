@@ -48,5 +48,6 @@ group :development, :test do
   gem 'faker', '~> 1.4.0'
 end
 
+gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'pry'
 gem 'pry-stack_explorer'

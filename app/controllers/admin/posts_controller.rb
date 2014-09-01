@@ -1,6 +1,6 @@
 module Admin
-  class PostsController < ApplicationController
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+  class PostsController < Admin::BaseController
+    before_action :set_post, only: [:show, :edit, :update]
 
     def index
       @posts = Post.paginate(page: params[:page], per_page: 5).order(created_at: :desc)

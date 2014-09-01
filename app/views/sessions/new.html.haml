@@ -1,0 +1,15 @@
+%h1 Login
+
+%div= flash[:error]
+
+= form_tag sessions_path do
+  .field
+    = label_tag :email
+    %br
+    = text_field_tag :email
+  .field
+    = label_tag :password
+    %br
+    = password_field_tag :password
+  .actions
+    = submit_tag

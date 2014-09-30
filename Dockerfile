@@ -19,10 +19,20 @@ RUN bash -lc 'nvm use 0.10'
 RUN \curl -sSL https://get.rvm.io | bash
 RUN bash -lc 'rvm install ruby-2.1.1'
 
+# Database - Would be awesome if this was on a different container
+RUN apt-get -y install postgresql postgresql-contrib
+
+USER postgres
+RUN /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER railsapp WITH SUPERUSER PASSWORD 'plaintext';"
+USER root
+
 # Application Dependencies
 WORKDIR /tmp
 ADD ./Gemfile Gemfile
 ADD ./Gemfile.lock Gemfile.lock
+RUN apt-get -y install libpq-dev
+RUN bash -lc 'gem install pg'
 RUN bash -lc 'bundle install'
 
 EXPOSE 3000
@@ -30,5 +40,8 @@ EXPOSE 3000
 WORKDIR /website
 add . .
 RUN bash -lc 'nvm alias default 0.10'
-RUN bash -lc 'rake db:migrate && rake db:seed'
-ENTRYPOINT bash -lc 'rails s'
+RUN /etc/init.d/postgresql start &&\
+    bash -lc 'rake db:create && rake db:migrate && rake db:seed'
+
+ENTRYPOINT /etc/init.d/postgresql start &&\
+    bash -lc 'rails s'

@@ -15,3 +15,6 @@
 /log/*.log
 /tmp
 .idea
+
+# Populated manually
+/db/seed_data/old_*.yml

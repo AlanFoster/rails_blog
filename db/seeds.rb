@@ -1,4 +1,5 @@
 require 'active_model'
+require_relative 'legacy_data'
 
 def delete_all
   models = %i(
@@ -24,7 +25,7 @@ def seed_posts
     created_at: :date
   }
 
-  seed_old_model :Post, field_mappings
+  LegacyData::seed :Post, field_mappings
 end
 
 def seed_comments
@@ -37,31 +38,7 @@ def seed_comments
     created_at: :date
   }
 
-  seed_old_model :Comment, field_mappings
-end
-
-def seed_old_model(model_name, field_mappings)
-  seed_data = load_seed_data("#{model_name.downcase}s")
-  seed_data.map(&:with_indifferent_access).each do |model_data|
-    model_attributes = create_model_attributes(field_mappings, model_data)
-    Object.const_get(model_name).create model_attributes
-  end
-end
-
-def create_model_attributes(field_mappings, model)
-  field_mappings.inject({}) do |mapping, (new_field, old_field)|
-    mapping[new_field] = model[old_field]
-    mapping
-  end
-end
-
-def load_seed_data(name)
-  path = File.join Rails.root,
-                   'db',
-                   'seed_data',
-                   "old_#{name}.yml"
-
-  YAML::load_file(path)
+  LegacyData::seed :Comment, field_mappings
 end
 
 # Begin Seeding

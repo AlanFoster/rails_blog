@@ -1,5 +1,5 @@
 %div.new_blog
-  = form_for(@post, url: admin_posts_path) do |f|
+  = form_for(@post, url: admin_post_path(@post)) do |f|
     - if @post.errors.any?
       #error_explanation
         %h2

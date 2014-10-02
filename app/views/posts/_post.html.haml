@@ -4,4 +4,4 @@
   %span.date
     = post.created_at.to_formatted_s(:long)
   %div
-    = post.content
+    != post.content

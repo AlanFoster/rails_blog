@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ../../../vendor/assets/components/SyntaxHighlighter/Scripts/shCore
+//= require ../../../vendor/assets/components/SyntaxHighlighter/Scripts/shBrushJScript
+//= require ../../../vendor/assets/components/SyntaxHighlighter/Scripts/shBrushJava
 //= require_tree .

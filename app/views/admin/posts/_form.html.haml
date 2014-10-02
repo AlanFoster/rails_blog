@@ -1,20 +1,5 @@
 %div.new_blog
-  = form_for(@post, url: admin_post_path(@post)) do |f|
-    - if @post.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@post.errors.count, "error")
-          prohibited this post from being saved:
-        %ul
-          - @post.errors.full_messages.each do |message|
-            %li= message
-    .field
-      = f.label :title
-      %br
-      = f.text_field :title
-    .field
-      = f.label :content
-      %br
-      = f.text_area :content
-    .actions
-      = f.submit
+  = semantic_form_for @post, url: admin_post_path(@post) do |f|
+    = f.inputs :title, :content
+
+    = f.actions :submit

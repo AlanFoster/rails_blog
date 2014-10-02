@@ -35,8 +35,8 @@ describe PostsController do
     end
 
     it { expect(response.status).to eq(200) }
-    it { expect(assigns(:new_comment)).to_not be_nil}
-    it { expect(assigns(:new_comment).post_id).to eq(mock_post.id)}
+    it { expect(assigns(:comment)).to_not be_nil}
+    it { expect(assigns(:comment).post_id).to eq(mock_post.id)}
   end
 
   describe '#overview' do

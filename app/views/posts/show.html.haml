@@ -3,7 +3,7 @@
 
 %hr
 %div.new_comment
-  = semantic_form_for [@post, @new_comment] do |f|
+  = semantic_form_for [@post, @comment] do |f|
     = f.inputs :name, :website, :content
 
     = f.actions :submit

@@ -25,11 +25,11 @@ describe Comment do
 
     it { expect(comment_model).to validate_presence_of(:name) }
     it { expect(comment_model).to validate_presence_of(:content) }
-    it { expect(comment_model).to validate_presence_of(:website) }
+    it { expect(comment_model).to_not validate_presence_of(:website) }
 
-    it { expect(comment_model).to ensure_length_of(:name).is_at_least(3).is_at_most(30) }
+    it { expect(comment_model).to ensure_length_of(:name).is_at_most(30) }
     it { expect(comment_model).to ensure_length_of(:content).is_at_least(3).is_at_most(5000) }
-    it { expect(comment_model).to ensure_length_of(:website).is_at_least(3).is_at_most(30) }
+    it { expect(comment_model).to ensure_length_of(:website).is_at_most(50) }
 
     it { expect(comment_model).to belong_to(:post) }
   end

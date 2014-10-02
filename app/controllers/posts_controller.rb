@@ -17,9 +17,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @new_comment = Comment.new post: @post
+    @comment = Comment.new post: @post
   end
-
 
   private
     def set_post

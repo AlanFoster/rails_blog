@@ -1,12 +1,7 @@
 describe CommentsController do
   describe '#create' do
-    let(:comment_json) do
-      {
-          'name' => Faker::Name.name,
-          'website' => Faker::Internet.url,
-          'content' => Faker::Lorem.paragraph,
-      }
-    end
+    let(:target_post) { FactoryGirl.create(:post) }
+
     let(:request_json) do
       {
           comment: comment_json,
@@ -18,31 +13,69 @@ describe CommentsController do
       post :create, request_json
     end
 
-    context 'valid post_id supplied' do
-      let(:target_post) { FactoryGirl.create(:post) }
-      it { expect { create_request }.to change { Comment.count }.from(0).to(1) }
-      it { expect(create_request).to redirect_to(target_post) }
+    context 'model valid' do
+      let(:comment_json) do
+        {
+          'name' => Faker::Name.name,
+          'website' => Faker::Internet.url,
+          'content' => Faker::Lorem.paragraph
+        }
+      end
 
-      context 'strong_params' do
-        let(:expected_initializers) do
-          {
-            'name' => comment_json['name'],
-            'website' => comment_json['website'],
-            'content' => comment_json['content'],
-          }
-        end
+      describe 'comment count' do
+        it { expect { create_request }.to change { Comment.count }.from(0).to(1) }
+      end
 
+      describe 'assignment' do
         before :each do
-          allow(Comment).to receive(:new).and_call_original
           create_request
         end
 
-        it { expect(Comment).to have_received(:new).with(expected_initializers) }
+        it { expect(assigns(:comment)).to be_a(Comment) }
+        it { expect(assigns(:post)).to be_a(Post) }
+        it { expect(create_request).to redirect_to(target_post) }
       end
     end
 
-    context 'invalid data supplied' do
-      pending 'add tests for invalid data, post_id etc'
+    context 'invalid additional params' do
+      let(:comment_json) do
+        {
+          'name' => Faker::Name.name,
+          'website' => Faker::Internet.url,
+          'content' => Faker::Lorem.paragraph,
+          'additional_values' => 'invalid'
+        }
+      end
+      let(:expected_initializers) do
+        {
+            'name' => comment_json['name'],
+            'website' => comment_json['website'],
+            'content' => comment_json['content']
+        }
+      end
+
+      before :each do
+        allow(Comment).to receive(:new).and_call_original
+        create_request
+      end
+
+      it { expect(Comment).to have_received(:new).with(expected_initializers) }
+    end
+
+    context 'invalid model' do
+      let(:comment_json) do
+        {
+          'name' => 'invalid'
+        }
+      end
+      let(:comment_mock) { double 'comment_mock', save: false }
+
+      before :each do
+        allow_any_instance_of(Comment).to receive(:save).and_return(false)
+        create_request
+      end
+
+      it { expect(create_request).to render_template('posts/show') }
     end
   end
 end

@@ -1,5 +1,6 @@
 do ->
-  highlight_code = -> SyntaxHighlighter.highlight()
-  $ highlight_code
-  ($ document).on 'page:load', highlight_code
+  on_each_load = (callback) ->
+    $ callback
+    ($ document).on 'page:load', callback
 
+  on_each_load SyntaxHighlighter.highlight

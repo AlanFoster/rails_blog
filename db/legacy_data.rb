@@ -7,7 +7,10 @@ class LegacyData
     seed_data = load_seed_data("#{model_name.downcase}s")
     seed_data.map(&:with_indifferent_access).each do |model_data|
       model_attributes = create_model_attributes(field_mappings, model_data)
-      Object.const_get(model_name).create model_attributes
+      model = Object.const_get(model_name).new model_attributes
+      unless model.save
+        raise "Could not create model '#{model_name}'' with attributes #{model_attributes}"
+      end
     end
   end
 

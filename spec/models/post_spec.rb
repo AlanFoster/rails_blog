@@ -23,7 +23,7 @@ describe Post do
     it { expect(post_model).to validate_presence_of(:title) }
     it { expect(post_model).to validate_presence_of(:content) }
 
-    it { expect(post_model).to ensure_length_of(:title).is_at_least(3).is_at_most(40) }
+    it { expect(post_model).to ensure_length_of(:title).is_at_least(3).is_at_most(50) }
     it { expect(post_model).to ensure_length_of(:content).is_at_least(3).is_at_most(30000) }
 
     it { expect(post_model).to have_many(:comments) }

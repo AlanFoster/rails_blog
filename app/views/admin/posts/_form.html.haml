@@ -1,5 +1,6 @@
 %div.new_blog
-  = semantic_form_for @post, url: admin_post_path(@post) do |f|
+  -# TODO Why can't we set controller: `Admin::PostsController` or such....
+  = semantic_form_for @post, url: (@post.new_record? ? admin_posts_url : admin_post_url(@post)) do |f|
     = f.inputs :title, :content
 
     = f.actions :submit

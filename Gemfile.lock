@@ -84,6 +84,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
@@ -176,6 +178,7 @@ DEPENDENCIES
   jquery-rails
   pg
   pry
+  pry-nav
   pry-stack_explorer
   rails (= 4.1.4)
   rspec-rails (~> 3.0.0)

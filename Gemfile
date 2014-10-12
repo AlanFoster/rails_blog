@@ -55,4 +55,5 @@ end
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'pry'
+gem 'pry-nav'
 gem 'pry-stack_explorer'

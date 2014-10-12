@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_blog_overview
 
-  # TODO is there a cleaner way of doing this?
   def set_blog_overview
-    @overview = PostsController.overview_of_posts
+    @overview = Post.overview
   end
 end

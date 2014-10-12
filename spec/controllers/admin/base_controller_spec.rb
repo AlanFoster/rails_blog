@@ -10,7 +10,8 @@ RSpec.describe Admin::BaseController do
   describe '#filter_admin' do
     context 'validated' do
       before :each do
-        session[:id] = 1337
+        user = FactoryGirl.create(:user)
+        session[:id] = user.id
         get :index
       end
 

@@ -3,9 +3,8 @@ require 'rails_helper'
 describe Admin::PostsController do
   let(:mock_post) { FactoryGirl.build(:post) }
 
-  # TODO should we use allow or such?
   before :each do
-    session[:id] = 1
+    allow(subject).to receive(:logged_in?).and_return(true)
   end
 
   describe '#index' do

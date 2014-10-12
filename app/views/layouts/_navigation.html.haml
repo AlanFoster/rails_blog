@@ -4,3 +4,8 @@
     - {Blogs: posts_path, About: about_path}.each do |link, path|
       .link
         = link_to link, path, class: style_for(path)
+    - if @current_user
+      .link
+        = link_to 'Admin', admin_posts_url
+      .link
+        = link_to 'Logout', logout_url

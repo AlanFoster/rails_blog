@@ -3,7 +3,7 @@ module Admin
     before_filter :filter_admin
 
     def filter_admin
-      unless session.key? :id
+      unless logged_in?
         redirect_to sessions_path
       end
     end

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_logged_in, except: [:destroy]
+
   def new
   end
 
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(user_params['email'], user_params['password'])
     if user
-      session[:id] = user.id
+      self.current_user = user
       redirect_to admin_posts_path
     else
       flash[:error] = 'Invalid username or password'
@@ -18,12 +20,16 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:id] = nil
-    redirect_to root_path
+    reset_session
+    redirect_to login_path
   end
 
   private
-    def user_params
-      params.permit(:email, :password)
-    end
+  def user_params
+    params.permit(:email, :password)
+  end
+
+  def redirect_if_logged_in
+    redirect_to admin_posts_path if logged_in?
+  end
 end

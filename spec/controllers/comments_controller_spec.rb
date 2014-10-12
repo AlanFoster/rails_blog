@@ -1,3 +1,5 @@
+require_relative '../rails_helper'
+
 describe CommentsController do
   describe '#create' do
     let(:target_post) { FactoryGirl.create(:post) }

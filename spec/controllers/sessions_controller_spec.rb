@@ -77,6 +77,6 @@ describe SessionsController do
     end
 
     it { expect(session[:id]).to be_nil }
-    it { expect(response).to redirect_to(root_path) }
+    it { expect(response).to redirect_to(login_path) }
   end
 end

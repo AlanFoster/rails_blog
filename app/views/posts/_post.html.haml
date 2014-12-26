@@ -1,6 +1,8 @@
 %div.post_preview
   %span.title
     = post.title
+    - if @current_user
+      = link_to '[Edit]', edit_admin_post_path(post)
   %span.date
     = post.created_at.to_formatted_s(:long)
   %div

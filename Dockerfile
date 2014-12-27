@@ -1,13 +1,23 @@
-from ubuntu:14.04
+from ubuntu:14.10
 
 # Core Dependencies
 RUN sed -i.bak 's/main$/main universe/' /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -qy install \
+    curl \
     git \
     vim \
-    curl \
     man
+
+run apt-get -qy install software-properties-common
+
+# nginx Dependencies
+RUN add-apt-repository -y ppa:nginx/stable
+RUN apt-get update
+RUN apt-get -qy install \
+    nginx
+# Copy across the nginx configuration
+ADD nginx.conf /etc/nginx/sites-enabled/website
 
 # Install Node Dependencies
 RUN \curl https://raw.githubusercontent.com/creationix/nvm/v0.17.1/install.sh | bash

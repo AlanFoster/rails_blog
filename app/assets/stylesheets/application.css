@@ -12,8 +12,8 @@
  *
  *= require reset
  *= require_tree .
- *= require ../../../vendor/assets/components/SyntaxHighlighter/Styles/shCore
- *= require ../../../vendor/assets/components/SyntaxHighlighter/Styles/shThemeDefault
+ *= require SyntaxHighlighter/Styles/shCore
+ *= require SyntaxHighlighter/Styles/shThemeDefault
  *= require formtastic
  *= require_self
  */

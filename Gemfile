@@ -32,17 +32,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'will_paginate', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -52,6 +41,11 @@ group :development, :test do
   gem 'faker', '~> 1.4.0'
 end
 
+gem 'capistrano', '~> 3.3.0'
+gem 'capistrano-rails', '~> 1.1.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rvm'
+gem 'unicorn'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'pry'

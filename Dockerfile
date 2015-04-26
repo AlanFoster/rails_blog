@@ -45,3 +45,8 @@ RUN /etc/init.d/postgresql start &&\
 
 ENTRYPOINT /etc/init.d/postgresql start &&\
     bash -lc 'rails s'
+
+
+# ngnix
+#   apt-getinstall nginx
+#   sudo service nginx start

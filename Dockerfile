@@ -11,7 +11,7 @@ RUN apt-get -qy install \
 
 # Install Node Dependencies
 RUN \curl https://raw.githubusercontent.com/creationix/nvm/v0.17.1/install.sh | bash
-RUN echo '[[ -s /.nvm/nvm.sh ]] && . /.nvm/nvm.sh' >> /etc/profile
+RUN echo '[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh' >> ~/.bashrc
 RUN bash -lc 'nvm install 0.10'
 RUN bash -lc 'nvm use 0.10'
 

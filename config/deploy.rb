@@ -12,10 +12,14 @@ set :deploy_via, :copy
 # set :linked_filed, %w(config/database.yml)
 
 set :use_sudo, false
-set :pty, true
+
+set :nvm_node, 'v0.10.38'
 
 set :tests, []
-set :assets_roles, %i(app)
+set :bower_roles, :app
+set :bower_flags, ''
+set :bower_bin, "/home/deploy/.nvm/#{fetch(:nvm_node)}/bin/bower"
+set :assets_roles, %i(web app)
 
 namespace :deploy do
   after :finishing, 'deploy:cleanup'

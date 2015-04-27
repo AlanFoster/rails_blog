@@ -20,4 +20,8 @@
 /db/seed_data/old_*.yml
 
 # Available with `bower install`
-/vendor/assets/components
+# /vendor/assets/components
+
+# built automatically during deploy, and manually via 
+#    bundle exec rake assets:precompile RAILS_ENV=production
+public/assets

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require SyntaxHighlighter/Scripts/shCore
 //= require SyntaxHighlighter/Scripts/shBrushJScript
 //= require SyntaxHighlighter/Scripts/shBrushJava

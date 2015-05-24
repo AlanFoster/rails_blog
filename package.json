@@ -1,0 +1,36 @@
+{
+  "name": "rails_blog",
+  "version": "1.0.0",
+  "description": "Rails Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlanFoster/rails_blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlanFoster/rails_blog/issues"
+  },
+  "homepage": "https://github.com/AlanFoster/rails_blog",
+  "devDependencies": {
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.9.2",
+    "del": "^1.2.0",
+    "extract-text-webpack-plugin": "^0.8.0",
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-webpack": "^1.4.0",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.9.8"
+  },
+  "dependencies": {
+    "highlight.js": "^8.6.0",
+    "jquery": "^2.1.4"
+  }
+}

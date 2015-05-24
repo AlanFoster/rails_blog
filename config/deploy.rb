@@ -13,6 +13,7 @@ set :deploy_via, :copy
 
 set :use_sudo, false
 
+set :default_shell, '/bin/bash -l'
 set :nvm_node, 'v0.10.38'
 
 set :tests, []

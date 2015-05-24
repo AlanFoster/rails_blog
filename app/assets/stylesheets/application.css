@@ -12,8 +12,7 @@
  *
  *= require reset
  *= require_tree .
- *= require SyntaxHighlighter/Styles/shCore
- *= require SyntaxHighlighter/Styles/shThemeDefault
  *= require formtastic
+ *= require color-brewer
  *= require_self
  */

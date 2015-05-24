@@ -25,3 +25,7 @@
 # built automatically during deploy, and manually via 
 #    bundle exec rake assets:precompile RAILS_ENV=production
 public/assets
+
+npm-debug.log
+node_modules/
+public/assets/

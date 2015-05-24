@@ -1,0 +1,4 @@
+{
+  "js": "app/assets/javascripts",
+  "target": "public/assets"
+}

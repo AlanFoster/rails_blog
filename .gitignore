@@ -29,3 +29,4 @@ public/assets
 npm-debug.log
 node_modules/
 public/assets/
+.DS_Store

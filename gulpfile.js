@@ -6,13 +6,19 @@ var plugins = require('gulp-load-plugins')();
 
 var settings = require('./config/js');
 
-gulp.task('assets:javascript', function () {
+gulp.task('watch:javascripts', ['assets:javascripts'], function() {
+  gulp.watch(settings.build.js, ['assets:javascripts']);
+});
+gulp.task('assets:javascripts', function () {
   return gulp.src(settings.build.js)
              .pipe(plugins.plumber())
              .pipe(plugins.webpack(settings.webpack))
              .pipe(gulp.dest(settings.build.target + '/javascripts'));
 });
 
+gulp.task('watch:stylesheets', ['assets:stylesheets'], function() {
+  gulp.watch(settings.build.stylesheets.watch, ['assets:stylesheets']);
+});
 gulp.task('assets:stylesheets', function() {
   return gulp.src(settings.build.stylesheets.index)
              .pipe(plugins.plumber())
@@ -31,11 +37,5 @@ gulp.task('clean', function (cb) {
   return del(settings.build.target + '/**/*', cb);
 });
 
-gulp.task('watch', ['clean', 'build'], function() {
-  gulp.watch([
-    settings.build.js,
-    settings.build.stylesheets.watch
-  ], ['build'])
-});
-
+gulp.task('watch', ['clean', 'watch:javascripts', 'watch:stylesheets']);
 gulp.task('default', ['clean', 'build']);

@@ -21,6 +21,6 @@ test:
 
 production:
   <<: *default
-  password: <%= ENV['RAILS_APP_DATABASE_PASSWORD'] %>
-  username: railsapp_production
-  database: production
+  database: <%= ENV['RAILS_BLOG_DATABASE'] %>
+  username: <%= ENV['RAILS_BLOG_USERNAME'] %>
+  password: <%= ENV['RAILS_BLOG_PASSWORD'] %>

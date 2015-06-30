@@ -4,5 +4,8 @@
     "watch": "app/assets/stylesheets/**/*",
     "index": "app/assets/stylesheets/index.scss"
   },
-  "target": "public/assets"
+  "target": {
+    "build": "public/assets",
+    "production": "public/assets/production"
+  }
 }

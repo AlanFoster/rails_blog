@@ -6,14 +6,19 @@ var plugins = require('gulp-load-plugins')();
 
 var settings = require('./config/js');
 
+var environment = {
+  isProduction: process.env.RAILS_ENV === 'production'
+};
+
 gulp.task('watch:javascripts', ['assets:javascripts'], function() {
   gulp.watch(settings.build.js, ['assets:javascripts']);
 });
+
 gulp.task('assets:javascripts', function () {
   return gulp.src(settings.build.js)
              .pipe(plugins.plumber())
              .pipe(plugins.webpack(settings.webpack))
-             .pipe(gulp.dest(settings.build.target + '/javascripts'));
+             .pipe(gulp.dest(settings.build.target.development + '/javascripts'));
 });
 
 gulp.task('watch:stylesheets', ['assets:stylesheets'], function() {
@@ -27,14 +32,25 @@ gulp.task('assets:stylesheets', function() {
              .pipe(plugins.autoprefixer())
              .pipe(plugins.sourcemaps.write())
              .pipe(plugins.rename('application.css'))
-             .pipe(gulp.dest(settings.build.target + '/stylesheets'));
+             .pipe(gulp.dest(settings.build.target.development + '/stylesheets'));
 });
 
-gulp.task('assets', ['assets:javascript', 'assets:stylesheets']);
+gulp.task('assets', ['assets:javascripts', 'assets:stylesheets']);
 gulp.task('build', ['assets']);
 
 gulp.task('clean', function (cb) {
-  return del(settings.build.target + '/**/*', cb);
+  return del(settings.build.target.development + '/**/*', cb);
+});
+
+gulp.task('production', ['clean', 'build'], function() {
+  var revAll = new plugins.revAll();
+  var productionTarget = settings.build.target.production;
+
+  return gulp.src(settings.build.target.development + '/**/*')
+             .pipe(revAll.revision())
+             .pipe(gulp.dest(productionTarget))
+             .pipe(revAll.manifestFile())
+             .pipe(gulp.dest(productionTarget));
 });
 
 gulp.task('watch', ['clean', 'watch:javascripts', 'watch:stylesheets']);
